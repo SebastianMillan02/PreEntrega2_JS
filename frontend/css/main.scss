@@ -1,0 +1,194 @@
+// IMPORTS
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap");
+
+// COLORES
+$bg-dark: #1c1c1c;
+$primary: #005cff;
+$primary-hover: #1480ff;
+$light: #323437;
+$lighter: #3e4043;
+$white: #ffffff;
+
+// FUENTES
+$h1: 700 50px "Barlow", sans-serif;
+$h2: 600 32px "Barlow", sans-serif;
+$text: 400 19px "Barlow", sans-serif;
+
+// MIXINS
+@mixin button() {
+  background-color: $primary;
+  color: $white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $primary-hover;
+  }
+}
+
+@mixin card() {
+  background-color: $light;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  color: $white;
+  transition: background-color 0.3s ease;
+  border: 2px solid $light;
+
+  &:hover {
+    background-color: $lighter;
+  }
+
+  p {
+    margin: 2px;
+
+    small {
+      margin-top: 0px;
+    }
+  }
+}
+
+// ESTILOS GENERALES
+body {
+  background-color: $bg-dark;
+  color: $white;
+  font-family: "Barlow", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font: $h1;
+  text-align: center;
+  margin: 5px;
+}
+
+h2 {
+  font: $h2;
+  margin-bottom: 5px;
+}
+
+p {
+  font: $text;
+  margin-top: 10px;
+}
+
+// CONTAINER PRINCIPAL
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+
+    margin: 50px 0 80px 0;
+
+  p {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 50px;
+  }
+}
+
+// SECCIONES PRINCIPALES
+.sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.section {
+  background-color: $lighter;
+  padding: 15px 25px;
+  border-radius: 20px;
+  flex: 1;
+  min-width: 280px;
+
+  h2 {
+    margin: 5px 0 25px 10px;
+    font-size: 25px;
+  }
+}
+
+.card {
+  @include card;
+
+  &:hover {
+    border: 2px solid $primary;
+  }
+
+  &.active {
+    border: 2px solid $primary;
+  }
+}
+
+.form-group {
+  margin-bottom: 15px;
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  input[type="number"],
+  input[type="checkbox"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid $lighter;
+    width: 95%;
+    background-color: $light;
+    color: $white;
+    margin-top: 5px;
+  }
+
+  input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+  }
+}
+
+// SECCIÓN TOTAL ESTIMADO
+.estimate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #005CFF, #0047CC);
+  color: $white;
+  padding: 20px 50px;
+  border-radius: 20px;
+  margin-top: 30px;
+
+  .services-qty h2 {
+    font: $h2;
+  }
+
+  h3 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 10px 0;
+  }
+
+  small {
+    font-size: 14px;
+    color: $white;
+    opacity: 0.8;
+  }
+}
+
+
+//MEDIA QUERIES
+@media screen and (max-width: 767px) {
+    .estimate{
+        flex-direction: column;
+        align-items: start;
+    }
+}
